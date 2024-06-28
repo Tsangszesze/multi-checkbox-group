@@ -22,9 +22,7 @@ export const MultiCheckbox = (props: MultiCheckboxProps) => {
     <div
       id="multi-checkbox"
       style={{
-        gridTemplateColumns: `repeat(${
-          columns < options.length ? columns : options.length + 1
-        }, 1fr)`,
+        gridTemplateColumns: `repeat(${options.length ? columns : 1}, 1fr)`,
       }}
     >
       {options.length
