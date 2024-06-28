@@ -1,3 +1,3 @@
-# Multi-Select Group
+# Multi-Checkbox Group
 
-This is a reusable multi-select component with control over the number of columns.
+This is a reusable multi-checkbox component with control over the number of columns.
