@@ -10,7 +10,9 @@ interface useMultiCheckboxProps {
 export const useMultiCheckbox = (props: useMultiCheckboxProps) => {
   const { options, onChange, defaultValues } = props;
   const [selectedValues, setSelectedValues] = useState<string[]>(
-    defaultValues || []
+    defaultValues?.filter((value) =>
+      options.map((option) => option.value).includes(value)
+    ) || []
   );
 
   const toggleCheckbox = (value: string) => {
