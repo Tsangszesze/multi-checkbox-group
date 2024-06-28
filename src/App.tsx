@@ -7,6 +7,7 @@ function App() {
   const OPTIONS = "abcdefghijklmnopqrstuvwxyz"
     .split("")
     .map((val) => ({ label: val.repeat(3), value: val }));
+  const DEFAULT = "abcz".split("").map((val) => val);
 
   return (
     <div id="App">
@@ -14,6 +15,7 @@ function App() {
         options={OPTIONS}
         onChange={(values) => console.log(values)}
         columns={columns}
+        defaultValues={DEFAULT}
       />
       <label>
         {"columns: "}

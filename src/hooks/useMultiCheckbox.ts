@@ -9,7 +9,9 @@ export const useMultiCheckbox = ({
   onChange,
   defaultValues,
 }: useMultiCheckboxProps) => {
-  const [selectedValues, setSelectedValues] = useState<string[]>([]);
+  const [selectedValues, setSelectedValues] = useState<string[]>(
+    defaultValues || []
+  );
 
   const toggleCheckbox = (value: string) => {
     const index = selectedValues.indexOf(value);
