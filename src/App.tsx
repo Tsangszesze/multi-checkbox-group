@@ -15,12 +15,16 @@ function App() {
         onChange={(values) => console.log(values)}
         columns={columns}
       />
-      <input
-        type="number"
-        min={1}
-        max={99}
-        onChange={(e) => setColumns(Number(e.target.value))}
-      ></input>
+      <label>
+        {"columns: "}
+        <input
+          value={columns}
+          type="number"
+          min={1}
+          max={99}
+          onChange={(e) => setColumns(Number(e.target.value))}
+        ></input>
+      </label>
     </div>
   );
 }
