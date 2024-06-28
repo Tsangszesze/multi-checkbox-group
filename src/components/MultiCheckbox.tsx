@@ -1,6 +1,7 @@
 import { useMultiCheckbox } from "../hooks/useMultiCheckbox";
 import { CheckboxOption } from "../types/Checkbox";
 import { Checkbox } from "./Checkbox";
+import "../styles/MultiCheckbox.css"
 
 interface MultiCheckboxProps {
   options: CheckboxOption[];
