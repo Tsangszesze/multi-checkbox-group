@@ -8,3 +8,9 @@
   padding: 10dvh 10vw;
   gap: 5%;
 }
+
+#columns-control {
+  align-self: center;
+  display: flex;
+  gap: 5px;
+}

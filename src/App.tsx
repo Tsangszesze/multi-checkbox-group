@@ -17,8 +17,8 @@ function App() {
         columns={columns}
         defaultValues={DEFAULT}
       />
-      <label>
-        {"columns: "}
+      <label id="columns-control">
+        <span>columns:</span>
         <input
           value={columns}
           type="number"
