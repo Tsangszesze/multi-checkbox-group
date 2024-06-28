@@ -13,7 +13,8 @@ interface MultiCheckboxProps {
 export const MultiCheckbox = (props: MultiCheckboxProps) => {
   const { options, defaultValues, onChange, columns } = props;
 
-  const { selectedValues, toggleCheckbox } = useMultiCheckbox({
+  const { selectedValues, toggleCheckbox, toggleSelectAll } = useMultiCheckbox({
+    options,
     onChange,
     defaultValues,
   });
@@ -25,16 +26,25 @@ export const MultiCheckbox = (props: MultiCheckboxProps) => {
         gridTemplateColumns: `repeat(${options.length ? columns : 1}, 1fr)`,
       }}
     >
-      {options.length
-        ? options.map((option, i) => (
+      {options.length ? (
+        <>
+          <Checkbox
+            label={"select All"}
+            onCheck={toggleSelectAll}
+            isChecked={selectedValues.length === options.length}
+          />
+          {options.map((option, i) => (
             <Checkbox
               key={i}
               label={option.label}
               onCheck={() => toggleCheckbox(option.value)}
               isChecked={selectedValues.includes(option.value)}
             />
-          ))
-        : "No option provided"}
+          ))}
+        </>
+      ) : (
+        "No option provided"
+      )}
     </div>
   );
 };

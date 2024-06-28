@@ -1,14 +1,14 @@
 import { useState } from "react";
+import { CheckboxOption } from "../types/Checkbox";
 
 interface useMultiCheckboxProps {
+  options: CheckboxOption[];
   onChange: (values: string[]) => void;
   defaultValues?: string[];
 }
 
-export const useMultiCheckbox = ({
-  onChange,
-  defaultValues,
-}: useMultiCheckboxProps) => {
+export const useMultiCheckbox = (props: useMultiCheckboxProps) => {
+  const { options, onChange, defaultValues } = props;
   const [selectedValues, setSelectedValues] = useState<string[]>(
     defaultValues || []
   );
@@ -21,5 +21,11 @@ export const useMultiCheckbox = ({
     onChange(temp);
   };
 
-  return { selectedValues, toggleCheckbox };
+  const toggleSelectAll = () => {
+    selectedValues.length === options.length
+      ? setSelectedValues([])
+      : setSelectedValues(options.map((option) => option.value));
+  };
+
+  return { selectedValues, toggleCheckbox, toggleSelectAll };
 };
