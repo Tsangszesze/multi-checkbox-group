@@ -1,4 +1,4 @@
-export interface Option {
+export interface CheckboxOption {
   label: string;
   value: string;
 }
