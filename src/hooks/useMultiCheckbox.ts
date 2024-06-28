@@ -7,6 +7,8 @@ interface useMultiCheckboxProps {
   defaultValues?: string[];
 }
 
+// Manage the state of selected values of a multi-checkbox group
+
 export const useMultiCheckbox = (props: useMultiCheckboxProps) => {
   const { options, onChange, defaultValues } = props;
   const [selectedValues, setSelectedValues] = useState<string[]>(

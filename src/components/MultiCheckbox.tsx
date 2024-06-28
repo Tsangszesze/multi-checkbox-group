@@ -8,7 +8,7 @@ interface MultiCheckboxProps {
   options: CheckboxOption[];
   defaultValues?: string[];
   onChange: (values: string[]) => void;
-  columns: number;
+  columnCount: number;
   renderControlPanel?: (
     options: CheckboxOption[],
     selectedValues: string[]
@@ -16,7 +16,7 @@ interface MultiCheckboxProps {
 }
 
 export const MultiCheckbox = (props: MultiCheckboxProps) => {
-  const { options, defaultValues, onChange, columns, renderControlPanel } =
+  const { options, defaultValues, onChange, columnCount, renderControlPanel } =
     props;
 
   const { selectedValues, toggleCheckbox, toggleSelectAll } = useMultiCheckbox({
@@ -30,7 +30,7 @@ export const MultiCheckbox = (props: MultiCheckboxProps) => {
       <div
         id="multi-checkbox"
         style={{
-          gridTemplateColumns: `repeat(${options.length ? columns : 1}, 1fr)`,
+          gridTemplateColumns: `repeat(${options.length ? columnCount : 1}, 1fr)`,
         }}
       >
         {options.length ? (
