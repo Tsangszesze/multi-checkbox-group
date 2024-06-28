@@ -1,3 +1,5 @@
 #multi-checkbox {
   display: grid;
+  border: black 0.5px solid;
+  overflow: scroll;
 }
