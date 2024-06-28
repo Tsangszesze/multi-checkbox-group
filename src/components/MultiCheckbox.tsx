@@ -1,7 +1,7 @@
 import { useMultiCheckbox } from "../hooks/useMultiCheckbox";
 import { CheckboxOption } from "../types/Checkbox";
 import { Checkbox } from "./Checkbox";
-import "../styles/MultiCheckbox.css"
+import "../styles/MultiCheckbox.css";
 
 interface MultiCheckboxProps {
   options: CheckboxOption[];
@@ -19,15 +19,24 @@ export const MultiCheckbox = (props: MultiCheckboxProps) => {
   });
 
   return (
-    <div id="multi-checkbox" style={{gridTemplateColumns: `repeat(${columns}, 1fr)`}}>
-      {options.map((option, i) => (
-        <Checkbox
-          key={i}
-          label={option.label}
-          onCheck={() => toggleCheckbox(option.value)}
-          isChecked={selectedValues.includes(option.value)}
-        />
-      ))}
+    <div
+      id="multi-checkbox"
+      style={{
+        gridTemplateColumns: `repeat(${
+          columns < options.length ? columns : options.length + 1
+        }, 1fr)`,
+      }}
+    >
+      {options.length
+        ? options.map((option, i) => (
+            <Checkbox
+              key={i}
+              label={option.label}
+              onCheck={() => toggleCheckbox(option.value)}
+              isChecked={selectedValues.includes(option.value)}
+            />
+          ))
+        : "No option provided"}
     </div>
   );
 };
